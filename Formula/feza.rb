@@ -1,7 +1,7 @@
 class Feza < Formula
-  desc "Plan, build, publish, and tap releases for CLI apps"
-  homepage "https://github.com/joshuboi77/Feza"
-  version "0.5.18"
+  desc "None"
+  homepage "None"
+  version "0.5.20"
 
 
   # Python package - install via pip so wrapper script can import it
@@ -10,17 +10,17 @@ class Feza < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/joshuboi77/Feza/releases/download/v0.5.18/feza-darwin-arm64.tar.gz"
-      sha256 "aec4d010b559bb3ec891500ddc6ab078909f97d82a449c55306d58472620e52a"
+      url "https://github.com/joshuboi77/Feza/releases/download/v0.5.20/feza-darwin-arm64.tar.gz"
+      sha256 "1e5d381a2c1b523c381d46e129ff774b18da3529b42a1cf788727dc3595808ee"
     else
-      url "https://github.com/joshuboi77/Feza/releases/download/v0.5.18/feza-darwin-amd64.tar.gz"
-      sha256 "24257cbe936bd8ce5e654586751a6de7bbba01ae446c5a2d9186ae8f8880e58e"
+      url "https://github.com/joshuboi77/Feza/releases/download/v0.5.20/feza-darwin-amd64.tar.gz"
+      sha256 "f3d2a2ca0b148eba2bdef3d291f9d68c59343e03a8da137f269db0129dec7116"
     end
   end
 
   on_linux do
-    url "https://github.com/joshuboi77/Feza/releases/download/v0.5.18/feza-linux-amd64.tar.gz"
-    sha256 "fe8c4e8884c9b4b6d6ba272981ed90a06eca8be82961da1ca0734a539b2d7ea8"
+    url "https://github.com/joshuboi77/Feza/releases/download/v0.5.20/feza-linux-amd64.tar.gz"
+    sha256 "32c3d45798bf972bc214548c2ec7fa51e6fadd354e42475575695588f6ca0d2f"
   end
 
   def install
@@ -42,7 +42,7 @@ class Feza < Formula
       package_dir = "feza"
       if Dir.exist?(package_dir)
         # Create a minimal setup.py if needed
-        File.write("setup.py", "from setuptools import setup; setup(name='feza', version='0.5.18')")
+        File.write("setup.py", "from setuptools import setup; setup(name='feza', version='0.5.20')")
         system python3, "-m", "pip", "install", "--prefix", prefix, "--no-build-isolation", "."
       end
     end
@@ -50,6 +50,6 @@ class Feza < Formula
   end
 
   test do
-    assert_match "0.5.18", shell_output("#{bin}/feza --version")
+    assert_match "0.5.20", shell_output("#{bin}/feza --version")
   end
 end
